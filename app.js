@@ -3,13 +3,17 @@ const last_operation = document.querySelector('.last_operation');
 const result = document.querySelector('.result');
 
 
+
 const calculate = () => {
-    let math_input = document.querySelector('.math_input').value;
     
+    let math_input = document.querySelector('.math_input').value;
+
     let first_number = '';
-    let sign;
-    let signs_counter = 0;
     let second_number = '';
+    let sign;
+    
+    let signs_counter = 0;
+
     
     let new_value = 0;
 
@@ -46,16 +50,19 @@ const calculate = () => {
         }
     }
 
-    if(math_input.length > 2) {       
+    if(math_input.length > 2 && signs_counter == 1 && count_dots < 3) {       
         let_count = true;      
-    } else {
-        alert('Invalid input');
     }
 
-    if(let_count)
+    if(math_input == '.+.') {
+        alert("Cannot count it. Sorry");
+        let_count = false;
+    }
+
+    if(let_count == true)
     {
         for(i=0; i<math_input.length; i++) { 
-            if(math_input[i] == '.' || Number(math_input[i])) {
+            if(math_input[i] == '.' || Number(math_input[i]) || math_input[i] == 0) {
                 first_number += math_input[i];
                 new_value = i;
                 new_value++;
@@ -69,25 +76,33 @@ const calculate = () => {
             second_number += math_input[j];
         }
      
+
         first_number = parseFloat(first_number);
         second_number = parseFloat(second_number);
-    
-        switch (sign) {
-            case '+':
-                result.innerHTML = first_number + second_number;
-                break;
-            case '-':
-                result.innerHTML = first_number - second_number;
-                break;
-            case '*':
-                result.innerHTML = first_number * second_number;
-                break;
-            case '/':
-                result.innerHTML = first_number / second_number;
-                break;
-    
-        }
+
+        if(sign.length > 0) {
+            switch (sign) {
+                case '+':
+                    result.innerHTML = first_number + second_number;
+                    break;
+                case '-':
+                    result.innerHTML = first_number - second_number;
+                    break;
+                case '*':
+                    result.innerHTML = first_number * second_number;
+                    break;
+                case '/':
+                    if(second_number == 0) {
+                        alert('Do not divide by 0!');
+                        break;
+                    } else {
+                        result.innerHTML = first_number / second_number;
+                        break;
+                    }
+                }
+            }
         last_operation.innerHTML += first_number + sign + second_number;
+
     }
 }
 
@@ -112,9 +127,6 @@ onkeydown = e => {
     switch(e.key) {
         case 'Enter':
             calculate();
-            break;
-        case ',':
-            // if(document.activeElement == document.querySelector('.math_input'))
             break;
     }
 }
