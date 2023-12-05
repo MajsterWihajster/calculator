@@ -4,13 +4,80 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Calculator</h1>
-    <p>Enter your math problem below :)</p>
-    <span class="last_operation"></span><br>
-    <input class="math_input" type="text"><br><br>
-      <button class="submit_button">Submit</button>
+
+    <div class="calculator">
+      <div class="operations">
+        <div class="last_operation"></div><br>
+        <input class="math_input" type="text" placeholder="0" autofocus="autofocus"><br><br>
+        <table>
+          <tr>
+            <td>
+              <input class="button" type="button" value="C">
+            </td>
+            <td>
+              <button class="button">/</button>
+            </td>
+            <td>
+              <button class="button">*</button>
+            </td>
+            <td>
+              <button class="button">-</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="button">7</button>
+            </td>
+            <td>
+              <button class="button">8</button>
+            </td>
+            <td>
+              <button class="button">9</button>
+            </td>
+            <td rowspan="2">
+              <button class="button" style="height: 180px;">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="button">4</button>
+            </td>
+            <td>
+              <button class="button">5</button>
+            </td>
+            <td>
+              <button class="button">6</button>
+            </td>
+            
+          </tr>
+          <tr>
+            <td>
+              <button class="button">1</button>
+            </td>
+            <td>
+              <button class="button">2</button>
+            </td>
+            <td>
+              <button class="button">3</button>
+            </td>
+            <td rowspan="2"><button class="button" style="height: 180px; font-size: 20px;">ENTER</button></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button class="button" style="width: 180px;">0</button>
+            </td>
+            <td>
+              <button class="button">,</button>
+            </td> 
+          </tr>
+        </table>
+      </div>
+    </div>
     <div class="result"></div>
     <script src="app.js"></script> 
   </body>

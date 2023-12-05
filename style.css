@@ -1,7 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 body {
     width: 80%;
     margin: auto;
     text-align: center;
+    font-family: 'Gabriela', serif;
+    background: linear-gradient(to right, #3C72FF, #857CAA);
 }
 .result {
     width: 100px;
@@ -11,4 +17,51 @@ body {
     margin: auto;
     width: 20%;
     text-align: center;  
+}
+.calculator {
+    margin: auto;
+    margin-top: 90px;
+    width: 400px;
+    height: 615px;
+    background-color: #9B9B9B;
+    border: 10px solid #C3C3C3;
+    border-radius: 10px;
+}
+.operations {
+    width: 360px;
+    height: 100px;
+    background-color: #C1D3EE;
+    margin: auto;
+    margin-top: 32px;
+}
+.last_operation {
+    font-size: 15px;
+    height: 15px;
+    width: 340px;
+    text-align: right;
+    padding: 10px 10px 0 0;
+}
+.math_input {
+    text-align: right;
+    background-color: #C1D3EE;
+    border: 0px;
+    font-size: 40px;
+    width: 350px;
+    height: 50px;
+    padding-right: 10px;
+}
+.math_input:focus {
+    outline: none;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;  
+}
+.button {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    background-color: #ABABAB;
+    border: 1px solid #FFF;
+    font-size: 32px;
 }

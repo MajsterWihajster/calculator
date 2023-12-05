@@ -1,6 +1,7 @@
 const submit_button = document.querySelector('.submit_button');
 const last_operation = document.querySelector('.last_operation');
 const result = document.querySelector('.math_input');
+let button = document.querySelectorAll('.button');
 
 let first_number = '';
 let sign;  
@@ -8,11 +9,14 @@ let second_number = '';
 
 let remember_last_operation;
 
+
 const check_characters = () => {
     let math_input = document.querySelector('.math_input').value;
 
     let signs_counter = 0;
     let count_dots = 0;
+
+    is_input_empty(math_input);
 
     for(i=0; i<math_input.length; i++) {//making sure, that field doesn't contain any different character
 
@@ -56,7 +60,7 @@ const calculate = (math_input) => {
     first_number = '';
     sign;  
     second_number = '';
-    is_input_empty(math_input);
+   
     
     for(i=0; i<math_input.length; i++) { 
         if(math_input[i] == '.' || math_input[i] == ',' || Number(math_input[i]) || math_input[i] == 0) {
@@ -80,7 +84,7 @@ const calculate = (math_input) => {
     second_number = parseFloat(second_number);
 
 
-    if(first_number && sign && second_number) { //removing last operation
+    if((first_number && sign && second_number)||(first_number == '0' || second_number == '0')) { //removing last operation
         last_operation.innerHTML = '';
     } else {
         last_operation.innerHTML = remember_last_operation;
@@ -121,8 +125,13 @@ const is_input_empty = (math_input) => {
 const last_correct_operation = (first_number, sign, second_number) => {
     return last_operation.innerHTML += first_number + sign + second_number;
 }
+const clear_input = () => {
+    result.innerHTML = '';
+}
 
-submit_button.addEventListener('click', calculate);
+const add_char = (i) => {
+
+}
 
 onkeydown = e => {
     switch(e.key) {
@@ -141,5 +150,17 @@ onkeydown = e => {
         case '/':
             check_characters();
             break;
+        case '1':
+            console.log('that should be 1');
+            result.innerHTML += '1';
+            break;
     }
+}
+
+
+
+
+
+for(i=0; i<17; i++) {
+    button[i].addEventListener('click', add_char);
 }
